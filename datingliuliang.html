@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--禁止页面缓存-->
+    <META http-equiv=Pragma content=no-cache>
+    <META http-equiv=Cache-Control content=no-cache>
+    <META http-equiv=Expires content=0>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>大厅流量</title>
+    <link rel="stylesheet" href="static/css/page.css"/>
+</head>
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+<div class="root">
+    <header>
+        <div class="headLeft f_l flow"><a href="index.html"></a><img src="static/images/llIco.png" width="59" height="50" class="f_l" /><span>税务大厅流量</span></div>
+        <a href="index.html" class="toHome f_r"><img src="static/images/home.png"/></a>
+    </header>
+    <div class="content">
+        <div class="flowBlock firstWindow">
+            <h2>窗口类型：综合办税服务窗口1</h2>
+            <div class="peopleBlock">等候人数：<span>10</span></div>
+            <div class="circle">
+                <div class="pie_left"><div class="left"></div></div>
+                <div class="pie_right"><div class="right"></div></div>
+                <div class="mask"><span>800</span><code>本周服务人次</code></div>
+            </div>
+            <p class="monthPeople">本月服务人次：1000人/次</p>
+            <div class="evaluateRow"><span>综合评价：</span><div class="f_l"><i></i><i></i><i></i><i></i></div></div>
+        </div>
+        <div class="flowBlock secondWindow">
+            <h2>窗口类型：综合办税服务窗口2</h2>
+            <div class="peopleBlock">等候人数：<span>12</span></div>
+            <div class="circle">
+                <div class="pie_left"><div class="left"></div></div>
+                <div class="pie_right"><div class="right"></div></div>
+                <div class="mask"><span>580</span><code>本周服务人次</code></div>
+            </div>
+            <p class="monthPeople">本月服务人次：1000人/次</p>
+            <div class="evaluateRow"><span>综合评价：</span><div class="f_l"><i></i><i></i><i></i><i></i></div></div>
+        </div>
+        <div class="flowBlock thirdWindow">
+            <h2>窗口类型：综合办税服务窗口3</h2>
+            <div class="peopleBlock">等候人数：<span>07</span></div>
+            <div class="circle">
+                <div class="pie_left"><div class="left"></div></div>
+                <div class="pie_right"><div class="right"></div></div>
+                <div class="mask"><span>440</span><code>本周服务人次</code></div>
+            </div>
+            <p class="monthPeople">本月服务人次：1000人/次</p>
+            <div class="evaluateRow"><span>综合评价：</span><div class="f_l"><i></i><i></i><i></i><i></i></div></div>
+        </div>
+        <div class="flowBlock fourWindow">
+            <h2>窗口类型：综合办税服务窗口4</h2>
+            <div class="peopleBlock">等候人数：<span>15</span></div>
+            <div class="circle">
+                <div class="pie_left"><div class="left"></div></div>
+                <div class="pie_right"><div class="right"></div></div>
+                <div class="mask"><span>600</span><code>本周服务人次</code></div>
+            </div>
+            <p class="monthPeople">本月服务人次：1000人/次</p>
+            <div class="evaluateRow"><span>综合评价：</span><div class="f_l"><i></i><i></i><i></i><i></i></div></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="static/js/jquery-3.2.0.min.js"></script>
+<script>
+    $(function() {
+        $('.circle').each(function(index, el) {
+            var num = ($(this).find('span').text())/1000 *100 * 3.6;
+            if (num<=180) {
+                $(this).find('.right').css('transform', "rotate(" + num + "deg)");
+            } else {
+                $(this).find('.right').css('transform', "rotate(180deg)");
+                $(this).find('.left').css('transform', "rotate(" + (num - 180) + "deg)");
+            };
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    // 禁止页面鼠标或键盘引起页面缩放
+    document.addEventListener('DOMContentLoaded', function (event) {
+        // chrome 浏览器直接加上下面这个样式就行了，但是ff不识别
+        document.body.style.zoom = 'reset';
+        document.addEventListener('keydown', function (event) {
+            if ((event.ctrlKey === true || event.metaKey === true)
+                && (event.which === 61 || event.which === 107
+                    || event.which === 173 || event.which === 109
+                    || event.which === 187  || event.which === 189))
+            {
+                event.preventDefault();
+            }
+        }, false);
+        document.addEventListener('mousewheel DOMMouseScroll', function (event) {
+            if (event.ctrlKey === true || event.metaKey) {
+                event.preventDefault();
+            }
+        }, false);
+    }, false);
+</script>
+</body>
+</html>

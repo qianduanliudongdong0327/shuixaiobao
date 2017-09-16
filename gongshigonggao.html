@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--禁止页面缓存-->
+    <META http-equiv=Pragma content=no-cache>
+    <META http-equiv=Cache-Control content=no-cache>
+    <META http-equiv=Expires content=0>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>公示公告</title>
+    <link rel="stylesheet" href="static/css/page.css"/>
+</head>
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+<div class="root">
+    <header>
+        <div class="headLeft f_l notice"><a href="index.html"></a><img src="static/images/gonggaoIco.png" width="55" height="48" class="f_l" /><span>公示公告</span></div>
+        <a href="index.html" class="toHome f_r"><img src="static/images/home.png"/></a>
+    </header>
+    <div class="content noPadding noticePage">
+        <div class="noticeLeft">        <!-- 公示公告left Start -->
+            <div class="noticeCon">
+                <a class="noticeList">
+                    <p>西安国税“家门口的自助办税服务”在西安银行网点推广使用</p>
+                    <div class="noticeMsg"><span>来源：纳税服务处</span><code>日期：2017-08-28</code></div>
+                </a>
+                <a class="noticeList">
+                    <p>国家税务总局关于企业重组业务企业所得税征收管理若干问题的公告</p>
+                    <div class="noticeMsg"><span>来源：国家税务总局</span><code>日期：2017-08-24</code></div>
+                </a>
+                <a class="noticeList">
+                    <p>部门联动齐抓共管推动国务院系列减税政策落地生效</p>
+                    <div class="noticeMsg"><span>来源：所得税处</span><code>日期：2017-07-31</code></div>
+                </a>
+                <a class="noticeList">
+                    <p>西安市国家税务局关于外贸企业退（免）税业务属地管理的通告</p>
+                    <div class="noticeMsg"><span>来源：税政科</span><code>日期：2017-07-31</code></div>
+                </a>
+                <a class="noticeList">
+                    <p>关于纳税人采用二维码便捷开具增值税发票的通知</p>
+                    <div class="noticeMsg"><span>来源：办公室</span><code>日期：2017-07-31</code></div>
+                </a>
+            </div>
+            <div class="pagination">
+                <a class="cur">1</a>
+                <a>2</a>
+                <a>3</a>
+                <a class="next">下一页</a>
+            </div>
+        </div>                                                  <!-- 公示公告left End -->
+        <div class="noticeRight">                               <!-- 公示公告right Start -->
+            <div class="chatListMain">
+                <div class="chatList f_r">
+                    <img src="static/images/txRight.png" class="f_r">
+                    <div class="f_r">你好我第一次申办需要什么材料</div>
+                </div>
+                <div class="chatList f_l">
+                    <img src="static/images/txLeft.png" class="f_l">
+                    <div class="f_l">你好按实际情况填好报表后盖上公章带上税务登记证副本原件、服务卡IC卡到主管税务机关前台办理即可。</div>
+                </div>
+                <div class="chatList f_r">
+                    <img src="static/images/txRight.png" class="f_r">
+                    <div class="f_r">非常感谢</div>
+                </div>
+                <div class="chatList f_r">
+                    <img src="static/images/txRight.png" class="f_r">
+                    <div class="f_r">购买金税盘价格是多少</div>
+                </div>
+                <div class="chatList f_l">
+                    <img src="static/images/txLeft.png" class="f_l">
+                    <div class="f_l">从8月1日起实施，金税盘从480元降到了200元，维护费从每年330元降到每年280元了！首次办理合计480元, 以后每年280元服务费。</div>
+                </div>
+            </div>
+            <div class="speakBtn"><a>按住说话</a></div>
+            <p>你可以说“小宝”,来呼唤我</p>
+        </div>                                                  <!-- 公示公告right End -->
+    </div>
+</div>
+<script type="text/javascript">
+    // 禁止页面鼠标或键盘引起页面缩放
+    document.addEventListener('DOMContentLoaded', function (event) {
+        // chrome 浏览器直接加上下面这个样式就行了，但是ff不识别
+        document.body.style.zoom = 'reset';
+        document.addEventListener('keydown', function (event) {
+            if ((event.ctrlKey === true || event.metaKey === true)
+                && (event.which === 61 || event.which === 107
+                    || event.which === 173 || event.which === 109
+                    || event.which === 187  || event.which === 189))
+            {
+                event.preventDefault();
+            }
+        }, false);
+        document.addEventListener('mousewheel DOMMouseScroll', function (event) {
+            if (event.ctrlKey === true || event.metaKey) {
+                event.preventDefault();
+            }
+        }, false);
+    }, false);
+</script>
+</body>
+</html>

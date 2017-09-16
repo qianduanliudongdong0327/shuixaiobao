@@ -1,0 +1,466 @@
+*{padding: 0; margin: 0;box-sizing: border-box;}
+div{overflow: hidden;}
+html,body{width:1920px; height:1080px;
+    font-family:'Microsoft YaHei'; overflow: hidden;
+    color: #fff;}
+img{border-style: none;}
+li {
+    list-style: none;
+}
+.f_l{
+    float: left;}
+.f_r{
+    float: right;}
+a {
+    background-color: transparent; /* 1 */
+    -webkit-text-decoration-skip: objects; /* 2 */
+    color: #fff;
+    cursor: pointer;
+}
+a:active, a:hover {
+    outline-width: 0;
+}
+code{font-family:'Microsoft YaHei';}
+input{outline: none;}
+::-webkit-scrollbar
+{
+    width: 10px;
+    height: 10px;
+    background:none;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0.3);
+    border-radius: 10px;
+    backgroundr: none;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius: 6px;
+    background: rgba(31,141,242,0.5);
+}
+
+.root{width:1920px;
+    height:1080px; margin: 0 auto; overflow: hidden;}
+
+header{width:1920px;
+    height:128px;
+    float: left;
+    background: -webkit-linear-gradient(#0299fe, #287cee); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#0299fe, #287cee); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#0299fe, #287cee); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#0299fe, #287cee); /* 标准的语法 */
+    -moz-box-shadow:0px 0px 12px #7D7D7D;
+    -webkit-box-shadow:0px 0px 12px #7D7D7D;
+    box-shadow:0px 0px 12px #7D7D7D;
+}
+header .headLeft a{width:22px;
+    height:38px;
+    float: left;
+    display: block; background: url("../images/returnIco.png") no-repeat; margin: 45px 15px 0 74px;}
+header .notice img{ margin-top:40px;}
+header .takeNum img{ margin-top:37px;}
+header .bill img{ margin-top:37px;}
+header .flow img{ margin-top:39px;}
+header .rules img{ margin-top:32px;}
+header .nav img{ margin-top:40px;}
+header .headLeft span{
+    height:100%; line-height: 128px; font-size: 40px;
+    font-weight:bold; margin-left: 12px;
+    float: left;}
+.toHome{width:47px;
+    height:50px; margin: 39px 56px 0 0;}
+.toHome img{width:100%;
+    height:100%;
+    float: left;}
+.content{padding: 38px 0 0 145px; width:100%;
+    float: left;}
+
+/* 大厅流量Start */
+.flowBlock{width:394px; position: relative;
+    float: left; margin-right: 22px;
+    height:838px; background: #f2f2f2; border-radius:15px;}
+.flowBlock h2{font-size: 24px;
+    color: #555; width:100%; text-align: center;
+    float: left; margin: 36px 0 32px 0;}
+.peopleBlock{width:338px;
+    height:182px; margin: 0 auto 70px; border-radius: 10px; line-height: 182px; font-size:27px; text-align: center;}
+.firstWindow .peopleBlock{background: #14b8d4;}
+.secondWindow .peopleBlock{background: #e84848;}
+.thirdWindow .peopleBlock{background: #fca83c;}
+.fourWindow .peopleBlock{background: #007ccc;}
+.peopleBlock span{font-size: 43px;
+    font-weight:bold;}
+/* 环形图style */
+.circle {
+    width: 208px;
+    height: 208px;
+    position: relative;
+    border-radius: 50%;
+    left:93px;
+}
+.firstWindow .circle{background: #14b8d4;}
+.secondWindow .circle{background: #e84848;}
+.thirdWindow .circle{background: #fca83c;}
+.fourWindow .circle{background: #007ccc;}
+.pie_left, .pie_right {
+    width:208px;
+    height:208px;
+    position: absolute;
+    top: 0;left: 0;
+}
+.left, .right {
+    width:208px;
+    height:208px;
+    background:#b6b5b5;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.pie_right, .right {
+    clip:rect(0,auto,auto,104px);
+}
+.pie_left, .left {
+    clip:rect(0,104px,auto,0);
+}
+.mask {
+    width: 159px;
+    height: 159px;
+    border-radius: 50%;
+    left: 25px;
+    top: 25px;
+    background: #FFF;
+    position: absolute;
+    text-align: center;
+    font-weight:bold; padding-top: 42px;
+}
+.mask span{
+    display: block;
+    font-size:33px;
+}
+.firstWindow .mask span{
+    color: #14b8d4;}
+.secondWindow .mask span{
+    color: #e84848;}
+.thirdWindow .mask span{
+    color: #fca83c;}
+.fourWindow .mask span{
+    color: #007ccc;}
+.mask code{font-size: 18px;
+    color: #555;
+    display: block;}
+.monthPeople{
+    color: #555; font-size:24px; margin: 120px 0 34px 38px;
+    float: left;}
+.evaluateRow{width:100%;
+    float: left; padding-left: 38px;}
+.evaluateRow span{
+    font-size:24px;
+    float: left;
+    font-weight:bold;
+    color: #555;}
+.evaluateRow div.f_l i{display: block; width:31px;
+    height: 31px;
+    float: left; background: url("../images/starIco.png") no-repeat;
+    margin-right:4px;}
+/* 发票代开Start */
+.billPage{width:100%;
+    padding: 180px 0 0 300px;}
+.billPage .QRcode{width:280px;
+    float: left;}
+.billPage .QRcode:first-child{margin-right: 480px;}
+.billPage .QRcode h3{width:100%; text-align: center;
+    font-weight:normal; color:#555; font-size:48px; margin-bottom: 30px;}
+/* 预约取号Start */
+.takeNumPage{width:100%; padding:234px 0 0 205px; position: relative;}
+.takeNumCode{width:198px;
+    height:auto; position: absolute; top:26px; right: 96px;}
+.takeNumCode img{width:198px;
+    height:198px;
+    float: left;}
+.takeNumCode span{width:100%; text-align: center;
+    color: #e66735; font-size: 20px; display: block;}
+.takeNumBtn{
+    width:475px;
+    height:283px;
+    display: block;
+    cursor: pointer;
+    float: left;
+    border-radius: 10px;
+    background: -webkit-linear-gradient(#019aff,#287cf8); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#019aff,#287cf8); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#019aff,#287cf8); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#019aff,#287cf8); /* 标准的语法 */
+    text-align: center; padding-top: 35px;
+}
+.appointBtn{
+    margin-left:202px;
+    background: -webkit-linear-gradient(#f57c4c,#e66735); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#f57c4c,#e66735); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#f57c4c,#e66735); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#f57c4c,#e66735); /* 标准的语法 */
+}
+.takeNumBtn span{width:100%; display: block;
+    font-size:52px;
+    font-weight:bold;}
+/* 公示公告Start */
+.noticePage{padding-bottom:20px !important;}
+.noPadding{padding: 0;}
+.noticeLeft{width:1296px;
+    float: left; margin: 50px 0 0 67px; padding-left: 5px;}
+.noticeCon{width:1286px; overflow: visible;
+    float: left;}
+.noticeList{
+    display: block; width:1286px;
+    margin-bottom: 20px;
+    height:122px; float: left;
+    border:1px solid #dfdfdf;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding:0 38px 0 50px;
+}
+.noticeList:hover{border:none;
+    -moz-box-shadow:0px 5px 15px #dde6f2;
+    -webkit-box-shadow:0px 5px 15px #dde6f2;
+    box-shadow:0px 5px 15px #dde6f2;
+}
+.noticeList p{font-size:24px; color:#555; margin-top: 30px;}
+.noticeMsg{width:100%;
+    float: left; margin-top:10px;}
+.noticeMsg span{font-size:20px; color:#555;
+    float: left;}
+.noticeMsg code{
+    float: right;
+    color: #999; font-size:18px; margin-top:15px;}
+.pagination{
+    float: right; padding: 40px 5px 0 0;}
+.pagination a{
+    display: block;
+    float: left;
+    width:42px;
+    height:42px;
+    border:1px solid #999; border-radius:4px; margin-left: 15px;
+    color: #999; line-height: 42px; text-align: center; font-size:24px;}
+.pagination a.cur{border-color: #287cee; background: #287cee;
+    color: #fff;}
+.next{width:auto !important; border: none !important;}
+.noticeRight{width:450px;
+    float: right;
+    margin:30px 60px 0 0;
+    height:872px; background: #fff; border-radius:10px;
+    -moz-box-shadow:2px 2px 18px #969696;
+    -webkit-box-shadow:2px 2px 18px #969696;
+    box-shadow:2px 2px 18px #969696; padding: 26px 4px 0 25px;
+}
+.chatListMain{width:100%; padding:0 8px 0 5px;
+    float: left; height: 710px; overflow-y: auto;}
+.chatList{margin-bottom: 35px;}
+.chatList img{border-radius:50%; width:72px; height: 72px;}
+.chatList div{padding: 14px 20px 12px; max-width: 286px; overflow: visible; margin-top: 7px; position:relative; line-height: 25px;}
+.chatList div::before{width:16px; height: 16px; position: absolute; content: '';
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg); 	/* IE 9 */
+    -moz-transform:rotate(45deg); 	/* Firefox */
+    -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(45deg);
+}
+.chatList div.f_r{background: #ffbf24;
+    border:1px solid #dc9d00; border-radius: 4px;
+    color: #333; font-size:18px; margin-right: 20px;}
+.chatList div.f_r::before{background: #ffbf24; right:-9px; top:12px; border-top:1px solid #dc9d00; border-right:1px solid #dc9d00;}
+.chatList div.f_l{background: #fff;
+    border:1px solid #d1d1d1; border-radius: 4px;
+    color: #333; font-size:18px; margin-left: 20px;}
+.chatList div.f_l::before{background: #fff; left:-9px; top:12px; border-left:1px solid #d1d1d1; border-bottom:1px solid #d1d1d1;}
+.speakBtn{width:400px; height: 60px;
+    float: left;}
+.speakBtn a{border-radius: 4px; width:100%;
+    height:100%; display: block;
+    float: left;
+    background: -webkit-linear-gradient(#019aff,#287cf8); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#019aff,#287cf8); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#019aff,#287cf8); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#019aff,#287cf8); /* 标准的语法 */
+    text-align: center; line-height: 60px; font-size:28px; position:relative;
+}
+.speakBtn a::before{content: ''; position: absolute; width:33px; height: 33px; background: url("../images/voiceIco.png") no-repeat; left:110px; top:14px;}
+.noticeRight p{width:100%;
+    float: left; color: #555; font-size:20px; text-align: center; margin-top: 19px;}
+/* 税收法规 */
+.padding8{padding-top: 8px !important;}
+.newsList .nav-tab {
+    width: 100%;
+    height:60px;
+    background:url("../images/tabTitBj.png") no-repeat left bottom; padding:0 0 7px 0; position: relative;
+}
+.newsList .nav-tab a{width:24px; height: 24px; position: absolute; background: url("../images/plusIco.png") no-repeat; right:10px; top:15px; cursor: pointer;}
+.newsList .nav-tab li {
+    width: 15.6%;
+    height: 53px;
+    text-align: center;
+    line-height: 60px;
+    font-size:28px;
+    color: #555;
+    cursor: pointer; position: absolute; top:0;
+}
+.newsList .nav-tab li:nth-child(2){left: 15.6%;}
+.newsList .nav-tab li:nth-child(3){left: 31.2%;}
+.newsList .nav-tab li:nth-child(4){left: 46.8%;}
+.newsList .nav-tab li:nth-child(5){left: 62.4%;}
+.newsList .nav-tab li:nth-child(6){left: 78%;}
+.newsList .nav-tab li.selected {
+    background: #287cee;
+    color: #fff;
+    height: 60px;
+    border-radius:10px 10px 0 8px;
+}
+.newsList .tab-panel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+}
+.newsList .tab-panel li {
+    width:100%;
+    height: 100%;
+}
+.tabList{width:100%;
+    height:122px; margin-bottom: 22px;
+    float: left;}
+.tabLeft{width:158px;
+    height:122px;
+    text-align: center;
+    padding-top: 29px; border-radius: 10px;
+    float: left;}
+.zengzhi{
+    background: -webkit-linear-gradient(#fe807e,#fd3437); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#fe807e,#fd3437); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#fe807e,#fd3437); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#fe807e,#fd3437); /* 标准的语法 */
+}
+.xiaofei{
+    background: -webkit-linear-gradient(#fee03d,#ff8a2b); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#fee03d,#ff8a2b); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#fee03d,#ff8a2b); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#fee03d,#ff8a2b); /* 标准的语法 */
+}
+.yingye{
+    background: -webkit-linear-gradient(#009bff,#287cee); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#009bff,#287cee); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#009bff,#287cee); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#009bff,#287cee); /* 标准的语法 */
+}
+.qiye{
+    background: -webkit-linear-gradient(#70fe9d,#19de5a); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#70fe9d,#19de5a); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#70fe9d,#19de5a); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#70fe9d,#19de5a); /* 标准的语法 */
+}
+.geren{
+    background: -webkit-linear-gradient(#b94aff,#873fd9); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#b94aff,#873fd9); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#b94aff,#873fd9); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#b94aff,#873fd9); /* 标准的语法 */
+}
+.tabRight{width:1103px;
+    height:122px;
+    float: left;
+    margin-left:25px; border: 1px solid #dfdfdf; border-radius: 10px; padding:16px 30px 0;}
+.tabRight h3{font-size:24px; color: #555;}
+.tabRight p{width:100%; font-size:20px;
+    color: #555; margin-top: 12px;}
+.tabRight div{width:100%; margin-top: 5px;
+    float: left; color: #999;}
+.tabRight div span{font-size:18px;
+    float: left;}
+.tabRight div code{font-size:16px;
+    float: right;}
+.curList .tabLeft{
+    -moz-box-shadow:2px 2px 18px #969696;
+    -webkit-box-shadow:2px 2px 18px #969696;
+    box-shadow:2px 2px 18px #969696;
+}
+.curList .tabRight{
+    -moz-box-shadow:1px 2px 12px #969696;
+    -webkit-box-shadow:1px 2px 12px #969696;
+    box-shadow:1px 2px 12px #969696;
+}
+/* 验证身份证Start */
+.idCard a{margin-right: 48px;}
+.idCardCon{width:1218px;
+    height:725px; margin: 0 auto; border: 1px solid #5a9bf2; border-radius: 10px;
+    -moz-box-shadow:1px 2px 12px #bbd6fb;
+    -webkit-box-shadow:1px 2px 12px #bbd6fb;
+    box-shadow:1px 2px 12px #bbd6fb; padding: 132px 0 0 190px;
+}
+.idCardMain{padding: 98px 0 30px;}
+.idCardTit{
+    float: left;}
+.idCardTit i{width:60px; float: left; margin-right: 26px;
+    height:60px; border-radius: 50%; display: block; background: url("../images/tishi.png") no-repeat;}
+.idCardTit span{line-height: 60px; font-size:34px; color: #000;}
+.idCardImg{width:316px; float: left;
+    height:274px; margin: 120px 0 0 260px;}
+/* 征期日历 */
+.calMain{padding: 74px 130px 30px;}
+.calMain .idCardCon{width:1660px;
+    height:790px; padding: 88px 0 0 66px;}
+.calRight{width:533px;
+    float: right; margin: 154px 66px 0 0; font-size:40px; color: #000; line-height: 74px;}
+#cal{
+    float: left;}
+.calWord2{
+    display: none;}
+.navLeft{width:1072px;
+    height:838px;
+    float: left; margin: 56px 0 0 173px;}
+/* 办税地图Start */
+.mapLeft{width:330px;
+    float: left; height: 942px; margin-top: 10px; background: #fbfcfe;}
+.mapLeftTop{padding:0 10px 10px; position: relative;}
+.mapLeftTop input.cityChose{background: none;
+    border:none;
+    color: #555; height: 20px; font-size:14px; margin-top: 3px;}
+.mapLeftTop::before{content:''; width:10px; height: 6px; position: absolute; left:140px; top:12px; background: url("../images/arrowDown.jpg") no-repeat;}
+.qhMapBtn{height: 26px; padding: 0 10px; line-height: 24px; border: 1px solid #36a5f6; border-radius:3px; display: inline-block;
+    float: right; color: #36a5f6; font-size:14px;}
+.searchBar{width:310px; margin:3px 0 16px 10px;
+    height:34px;
+    float: left; border: 1px solid #1083b2;}
+.searchBar input{width:239px;
+    height:34px; margin-left: 1px; padding: 0 5px; background: none; border: none; font-size:14px;
+    float: left;}
+.searchBar a{
+    display: block; width:68px;
+    height:32px; background: #1083b2; text-align: center; line-height: 32px; float: left;}
+.mapLeftList{width:100%;
+    height:856px;
+    float: left; overflow-y:auto;}
+.mapLeftList li{width:100%; padding: 0 10px; border-bottom: 1px solid #eee;
+    height:52px; line-height: 52px;
+    color: #555;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.mapCon{width:1590px;
+    float: left;
+    height: 942px; margin-top: 10px;}
+.mapModal{width:300px; height: 952px; position: absolute; top:128px;
+    right:0; background: rgba(0,0,0,0.8); z-index: 10;}
+.modalTitle{width:100%;
+    height:50px; font-size:20px;
+    font-weight:bold; background: rgba(0,0,0,0.6); padding-left: 18px; color: #3bb4eb; line-height: 50px;}
+.modalCon{width:100%;
+    float: left; padding: 20px 40px 0 18px;}
+.modalCon h3{
+    font-weight:normal; color: #3bb4eb; font-size:18px; margin-bottom: 25px;}
+.modalCon p{width:100%; margin-bottom: 25px;
+    font-size:16px;
+    float: left;}

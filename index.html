@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <!--禁止页面缓存-->
+    <META http-equiv=Pragma content=no-cache>
+    <META http-equiv=Cache-Control content=no-cache>
+    <META http-equiv=Expires content=0>
+    <meta charset="UTF-8">
+    <title>税小宝</title>
+    <link rel="stylesheet" href="./static/css/base.css">
+    <link rel="stylesheet" href="./static/css/tb1.css">
+    <script src='./static/jquery-1.11.3/jquery.js'></script>
+    <!--json库-->
+    <script type="text/javascript" src="./static/js/json2.js"></script>
+    <!--XFAsrControl库-->
+    <script type="text/javascript" src="./static/js/XFAsrControl.js"></script>
+    <script type="text/javascript">
+        /**
+         * 事    件：启动讯飞语音识别事件
+         * 说    明：启动麦克风语音录入和讯飞识别
+         * 参    数：无
+         * 返    回：0-接收成功
+         * 备    注：语音识别开启nlp
+         */
+        function StartASR() {
+            var rt = spXFAsrControl_ctl.TDStartASR(11, 0);
+            return rt;
+        }
+
+        /**
+         * 事    件：启动讯飞语音识别事件
+         * 说    明：启动麦克风语音录入和讯飞识别
+         * 参    数：无
+         * 返    回：0-接收成功
+         * 备    注：语音识别开启nonlp
+         */
+        function StartASRNONLP() {
+            var rt = spXFAsrControl_ctl.TDStartASR(11,2);
+            return rt;
+        }
+
+        /**
+         * 事    件：停止讯飞语音识别事件
+         * 说    明：停止麦克风语音录入
+         * 参    数：无
+         * 返    回：0-接收成功
+         * 备    注：语音识别停止（强制）
+         */
+        function StopASR() {
+            var rt = spXFAsrControl_ctl.TDStopASR(1);
+            return rt;
+        }
+
+        /*
+         * 事    件：NLP（同步）
+         * 说    明：
+         * 参    数：text内容
+         * 返    回：回复内容
+         */
+        function NLPSyn(text) {
+            var rt = spXFAsrControl_ctl.TDNLP(13,text,1);
+            return rt;
+        }
+
+        /*
+         * 事    件：NLP（异步）
+         * 说    明：
+         * 参    数：text内容
+         * 返    回：回复内容
+         */
+        function NLPAsyn(text) {
+            var rt = spXFAsrControl_ctl.TDNLP(13,text,0);
+            return rt;
+        }
+
+        /*
+        * 事    件：NLP调客服系统（异步）
+        * 说    明：
+        * 参    数：text内容
+        * 返    回：回复内容
+        */
+        function NLPKfAsyn(text) {
+            // nlp，调客服系统（异步）
+            var rt = spXFAsrControl_ctl.TDNLPEx(2,13,text,0);
+            return rt;
+        }
+
+        // 启动语音播报
+        function StartTTS(text) {
+            var r = spXFAsrControl_ctl.TDStartTTS(66,text);
+        }
+
+        // 停止语音播报
+        function StopTTS() {
+            var r = spXFAsrControl_ctl.TDStopTTS();
+        }
+    </script>
+
+    <!--录音机状态事件-->
+    <script language="JavaScript" for="spXFAsrControl_ctl" event="TDOnAudioCaptureStatusEvent(ieventid)">
+        var status = "";
+        status = AudioCaptureStatus(ieventid);
+    </script>
+    <!--语音识别状态事件-->
+    <script language="JavaScript" for="spXFAsrControl_ctl" event="TDOnASRStatusEvent(ieventid)">
+        var status="";
+        status = ASRStatus(ieventid);
+        var answer = ASRErrorAnswer(status);
+        if (0 != answer.length) {
+            askMsg(answer);
+        }
+    </script>
+    <!--获取语音识别（nlp）结果-->
+    <script language="JavaScript" for="spXFAsrControl_ctl" event="TDOnASRNLPResultEvent(iOwner,retMsg)">
+        // rt = NLPSyn(retMsg);  // NLP（同步）
+        // rt = NLPKfAsyn(retMsg);  // nlp，调客服系统（异步）
+        askMsg(rt);
+        answerRt = RobotAnswer(rt);
+        answerMsg(answerRt);
+        StartTTS(answerRt);  // 启动语音播报
+    </script>
+    <!--获取语音识别（no nlp）结果-->
+    <script language="JavaScript" for="spXFAsrControl_ctl" event="TDOnNLPResultEvent(iOwner,retMsg)">
+        //rt = NLPSyn(retMsg);  // NLP（同步）
+        //rt = NLPKfAsyn(retMsg);  // nlp，调客服系统（异步）
+        askMsg(rt);
+        answerRt = RobotAnswer(rt);
+        answerMsg(answerRt);
+        StartTTS(answerRt);  // 启动语音播报
+    </script>
+</head>
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false'>
+<div class="box">
+        <!-- 标题栏开始 -->
+        <div class="titl">
+            <img class="logo" src="./static/images/logo.png" alt="">
+            <span class="biaotiwenzi"></span>
+            <p>点击下载APP</p>
+            <img class="shouji" src="./static/images/shouji tubiao.png" alt=""> 
+            <span class="login">登陆</span> 
+        </div>
+        <!-- 标题栏结束 -->
+        <div id="left">
+                <!-- 公告栏开始 -->
+                <div class="notice">
+                    <p>公告:陕西省国家税务局 陕西省地方税务局关于税务事物所实施行政登记的通知</p>
+                    <img src="./static/images/jiantou.png" alt="">
+                </div>
+                <!-- 公告栏结束 -->
+                <div class="content">
+                    <a href="datingdaohang.html">
+                        <span class="datingdaohang">
+                            <p>大厅导航</p>
+                        <!-- <img class="datingdaohang" src="./images/dating.png" alt=""> -->
+                        </span>
+                    </a>
+                    <a href="gongshigonggao.html">
+                        <span class="gonggao">
+                            <p>公告公示</p>
+                        </span>
+                    </a>
+                    <a href="shuishoufagui.html">
+                        <span class="shuishoufagui">
+                                <p>税收法规</p>
+                        </span>
+                    </a>
+                    <a href="banshuiditu.html">
+                        <span class="banshuiditu">
+                                <p>办税地图</p>
+                        </span>
+                    </a>
+                    <a href="datingliuliang.html">
+                        <span class="datingliuliang">
+                                <p>大厅流量</p>
+                        </span>
+                    </a>
+                    <a href="zhengqirili.html">
+                        <span class="zhengqirili">
+                                <p>征期日历</p>
+                        </span>
+                    </a>
+                    <span class="zhuanguanyuan">
+                            <p>税收专管员</p>
+                    </span>
+                    <span class="fapiaodaikai">
+                            <p>发票代开</p>
+                    </span>
+                    <a href="yuyuequhao.html">
+                        <span class="paiduiqvhao">
+                                <p> 排队取号</p>
+                        </span>
+                    </a>
+                    <span class="banshuizhinan">
+                            <p>办税指南</p>
+                    </span>
+                    <div class="pagination">
+                        <a href="second.html"></a>
+                    </div>
+                </div>
+
+        </div>
+        
+        <div id="right">
+            <div id="setting" style="overflow-y: auto;">
+                <img class="xuxian" src="./static/images/xuxian.png">
+                <p class="zhineng">智能客服</p> 
+                <ul class="ull">
+                    <li class="duihuatiao clearfix">
+                        <img class="yonghutouxiang" src="./static/images/yonghutouxiang.png" alt="">
+                        <div class="dialog1">
+                            你好我第一次申办需要什么材料 
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="ull1">
+                    <li class="duihuatiao1 clearfix">
+                        <img class="kefutuxiang" src="./static/images/kefutuxiang.png" alt="">
+                        <div class="dialog2">
+                            你好按实际情况填好报表后盖上公章带上税务登记证副本原件.服务卡IC到主管税务机关前台办理即可 
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="ull2">
+                    <li class="duihuatiao2 clearfix">
+                        <img class="yonghutouxiang" src="./static/images/yonghutouxiang.png" alt="">
+                        <div class="dialog3">
+                            非常感谢  服务卡IC到主管税务机关前台办理即可服务卡IC到主管税务机关前台办理即可服务卡IC到主管税务机关前台办理即可
+                        </div>
+                        <!-- <span class="triangle2"></span> -->
+                    </li>
+                </ul>
+
+                <ul class="ull2">
+                    <li class="duihuatiao2 clearfix">
+                        <img class="yonghutouxiang" src="./static/images/yonghutouxiang.png" alt="">
+                        <div class="dialog3">
+                            购买金税盘价格是多少
+                        </div>
+                        <span class="triangle2"></span>
+                    </li>
+                </ul>
+
+                <ul class="ull4">
+                    <li class="duihuatiao4 clearfix">
+                        <img class="kefutuxiang" src="./static/images/kefutuxiang.png" alt="">
+                        <div class="dialog5">
+                            从8月1日起实施，金税盘价格从480元降到了200元，维护费从每年的330元降到了每年280元了！首次办理合计480元,以后每年280元服务费。
+                        </div>
+                    </li>
+                </ul>
+                <button  id="voice"  style="position: absolute;bottom: -100px;left: 20px;z-index: 10" onclick='clickSpeak()'>
+                    点击 说话
+                </button>
+                <div class="footer" style="position: absolute;bottom: -150px;left: 0">
+                    <!--<button class="bt">点击 说话</button>-->
+                    <p class="hint">你可以说“小宝”,来呼唤我</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+	       var obj = document.getElementById("voice")
+           var val = obj.innerText;
+          function clickSpeak () {
+          	var _this = this;
+            if(!_this.flag){
+            	// alert(2)
+                obj.innerHTML = "请在10秒内说话";
+                _this.flag = true;
+                var timer = null;
+                var n = 10;
+                timer = setInterval(function(){
+                    n--;
+                    obj.innerHTML = "请在"+n+"秒内说话";
+                },1000)
+                setTimeout(function(){
+                    clearInterval(timer)
+                    obj.innerHTML = "点击 说话";
+                    _this.flag = false;
+                },10000)
+            }   
+           }
+        // 禁止页面鼠标或键盘引起页面缩放
+        document.addEventListener('DOMContentLoaded', function (event) {
+            // chrome 浏览器直接加上下面这个样式就行了，但是ff不识别
+            document.body.style.zoom = 'reset';
+            document.addEventListener('keydown', function (event) {
+                if ((event.ctrlKey === true || event.metaKey === true)
+                    && (event.which === 61 || event.which === 107
+                        || event.which === 173 || event.which === 109
+                        || event.which === 187  || event.which === 189))
+                {
+                    event.preventDefault();
+                }
+            }, false);
+            document.addEventListener('mousewheel DOMMouseScroll', function (event) {
+                if (event.ctrlKey === true || event.metaKey) {
+                    event.preventDefault();
+                }
+            }, false);
+        }, false);
+
+        function  talk() {
+            askMsg("你好，你是谁？");
+            answerMsg("您好，我是税小宝，有什么可以帮您的？");
+        }
+        function askMsg(msg) {
+            var box = document.getElementById('setting');
+            var ul = document.createElement('ul');
+            ul.innerHTML =  '<ul class="ull2">'
+                            + '<li class="duihuatiao2 clearfix">'
+                            + '<img class="yonghutouxiang" src="./static/images/yonghutouxiang.png" alt="">'
+                            + '<div class="dialog3">' + msg + '</div>'
+                            + '<span class="triangle2"></span>'
+                            + '</li>'
+                            + '</ul>';
+            box.appendChild(ul);
+            box.scrollTop = box.scrollHeight;
+        }
+        
+        function answerMsg(msg) {
+            var box = document.getElementById('setting');
+            var ul = document.createElement('ul');
+            ul.innerHTML =  '<ul class="ull4">'
+                            + '<li class="duihuatiao4 clearfix">'
+                            + '<img class="kefutuxiang" src="./static/images/kefutuxiang.png" alt="">'
+                            + '<div class="dialog5">' + msg + '</div>'
+                            + '</li>'
+                            + '</ul>';
+            box.appendChild(ul);
+            box.scrollTop = box.scrollHeight;
+        }
+    </script>
+     <script type="text/javascript">
+        <!--按住 说话 处理函数-->
+        function Speak() {
+            StartASRNONLP();
+            // StartASR();
+        }
+    </script>
+    <!--科大讯飞语音处理模块-->
+    <object id="spXFAsrControl_ctl" CLASSID="CLSID:4A7A42A6-F6A4-47D8-A720-124C42B517F3" width=0 height=0  align=center	hspace=0 vspace=0 >
+    </object>
+</body>
+</html>

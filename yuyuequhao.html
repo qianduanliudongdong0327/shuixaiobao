@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--禁止页面缓存-->
+    <META http-equiv=Pragma content=no-cache>
+    <META http-equiv=Cache-Control content=no-cache>
+    <META http-equiv=Expires content=0>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>预约取号</title>
+    <link rel="stylesheet" href="static/css/page.css"/>
+</head>
+<body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()' >
+<div class="root">
+    <header>
+        <div class="headLeft f_l takeNum"><a href="index.html"></a><img src="static/images/yuyueIco_.png" width="64" height="54" class="f_l" /><span>预约取号</span></div>
+    </header>
+    <div class="content">
+        <div class="takeNumPage f_l">
+            <div class="takeNumCode"><img src="static/images/gsImg.png"/><span>[扫码预约拒绝排队]</span></div>
+            <a class="takeNumBtn">
+                <img src="static/images/paiduiIco.png" width="130" height="132"/>
+                <span>排队取号</span>
+            </a>
+            <a class="takeNumBtn appointBtn">
+                <img src="static/images/yuyueIco.png" width="140" height="132" />
+                <span>预约取号</span>
+            </a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // 禁止页面鼠标或键盘引起页面缩放
+    document.addEventListener('DOMContentLoaded', function (event) {
+        // chrome 浏览器直接加上下面这个样式就行了，但是ff不识别
+        document.body.style.zoom = 'reset';
+        document.addEventListener('keydown', function (event) {
+            if ((event.ctrlKey === true || event.metaKey === true)
+                && (event.which === 61 || event.which === 107
+                    || event.which === 173 || event.which === 109
+                    || event.which === 187  || event.which === 189))
+            {
+                event.preventDefault();
+            }
+        }, false);
+        document.addEventListener('mousewheel DOMMouseScroll', function (event) {
+            if (event.ctrlKey === true || event.metaKey) {
+                event.preventDefault();
+            }
+        }, false);
+    }, false);
+</script>
+</body>
+</html>
